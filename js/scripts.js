@@ -152,4 +152,9 @@ $( "#search" ).bind( "click", function() {  // #search is the button
       $(".github").append("</ul>");
     });
   });
+
+  var req = new XMLHttpRequest();
+  req.addEventListener("load", reqListener);
+  req.open("GET", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=77peghd802xn68&redirect_uri=http%3A%2F%2Flocalhost%3A8888%2F&state=987654321");
+  req.send();
 });
