@@ -78,19 +78,27 @@ $(function () {
 });
 
 // parse JSON data from URI
-var github_link = "https://api.github.com/users/ckyue";
-
-$.getJSON(github_link, function (json) {
-	var login = json.login;
-	alert(login);
-});
+// var github_link = "https://api.github.com/users/ckyue";
+//
+// $.getJSON(github_link, function (json) {
+// 	var login = json.login;
+// 	alert(login);
+// });
 
 //scap url
-$(document).ready(function() {
-  $.get( "https://www.linkedin.com/in/ckyue", function( data ) {
-  //$( ".endorse-item-name-text" ).html(data );
-  alert( "Load was performed." );
-});
+// $(document).ready(function() {
+//   $.get( "https://www.linkedin.com/in/ckyue", function( data ) {
+//   //$( ".endorse-item-name-text" ).html(data );
+//   alert( "Load was performed." );
+// });
+// });
+
+
+$( "#search" ).bind( "click", function() {
+  console.log( "User clicked on 'search.'" );
+  var userInput = $("#usr").val();
+  userInput = userInput.replace(/\s+/g,"+");
+  console.log(userInput);
 });
 
 
