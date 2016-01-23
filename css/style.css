@@ -1,0 +1,59 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+    font-family:HelveticaNeue-Thin,'Helvetica Neue Light','Helvetica Neue','Segoe UI',Helvetica,Arial,'Lucida Grande',sans-serif;
+    margin:0;
+    padding:0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight:100;
+    line-height:1.4;
+}
+
+h1 {
+    font-size:5em;
+}
+
+
+.container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.row {
+    margin: 50px;
+}
+
+.container p {
+    font-size: 20px;
+}
+
+.well {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: lightgrey;
+    text-align: center;
+    margin: auto;
+}
+
+.content {
+    margin-top: 20px;
+}
