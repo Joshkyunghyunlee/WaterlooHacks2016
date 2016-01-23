@@ -94,13 +94,14 @@ $(function () {
 
 
 $( "#search" ).bind( "click", function() {  // #search is the button
+  $( ".github" ).empty();
   // console.log( "User clicked on 'search.'" );
   var userInput = $("#usr").val();  // #usr is the input field
   userInput = userInput.replace(/\s+/g,"+");  // \s space, g global, + maybe repeated more than once
   // console.log(userInput);
   var userLocation_selected = document.getElementById("location");
   var userLocation = userLocation_selected.options[userLocation_selected.selectedIndex].value;
-  console.log(userLocation);
+  // console.log(userLocation);
   switch(userLocation) {
     case "AB":
         var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Alberta";
@@ -129,14 +130,14 @@ $( "#search" ).bind( "click", function() {  // #search is the button
   //pass github link we got based from user input
   console.log(github_link);
   $.getJSON(github_link, function (json) {
-    var userRepo = json.items[0].repos_url;
+    var userRepo = json.items[0].repos_url + "?access_token=83701724955f812815dfb18948932621900cd00b";
     console.log(userRepo);
     $.getJSON(userRepo, function(json){
       var userRepoName = new Array;
       for(var n = 0; n < json.length; n++){  //repo name
         userRepoName[n] = json[n].name;
       }
-      // console.log(userRepoName);
+      console.log(userRepoName);
       $(".github").append("<h2>GitHub</h2>");
       $(".github").append("<h4>Repository</h4>")
       $("h2").addClass("section-header");
