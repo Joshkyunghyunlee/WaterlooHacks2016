@@ -137,17 +137,14 @@ $( "#search" ).bind( "click", function() {  // #search is the button
         userRepoName[n] = json[n].name;
       }
       // console.log(userRepoName);
-      $(".github").append("<h2 class="github-header">GitHub</h2>");
-      $(".github").append("<h2 class="github-header-small">Repository</h2>");
-      $(".github").append("<ul class="github-repo">");
+      $(".github").append("<h2>GitHub</h2>");
+      $(".github").append("<h4>Repository</h4>")
+      $("h2").addClass("section-header");
+      $("h4").addClass("section-header-small");
       for(var n = 0; n < userRepoName.length; n++){
         $(".github").append("<li>" + userRepoName[n] + "</li>");
       }
       $(".github").append("</ul>");
-      // $.each(json, function(){
-      //   var userRepoName = this.name;
-      //   console.log(this.name);
-      // });
     });
   });
 });
