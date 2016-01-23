@@ -1,6 +1,6 @@
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
-        
+
         // Settings
         var $widget = $(this),
             $checkbox = $('<input type="checkbox" class="hidden" />'),
@@ -14,7 +14,7 @@ $(function () {
                     icon: 'glyphicon glyphicon-unchecked'
                 }
             };
-            
+
         $widget.css('cursor', 'pointer')
         $widget.append($checkbox);
 
@@ -27,7 +27,7 @@ $(function () {
         $checkbox.on('change', function () {
             updateDisplay();
         });
-          
+
 
         // Actions
         function updateDisplay() {
@@ -51,11 +51,11 @@ $(function () {
 
         // Initialization
         function init() {
-            
+
             if ($widget.data('checked') == true) {
                 $checkbox.prop('checked', !$checkbox.is(':checked'));
             }
-            
+
             updateDisplay();
 
             // Inject the icon if applicable
@@ -65,9 +65,9 @@ $(function () {
         }
         init();
     });
-    
+
     $('#get-checked-data').on('click', function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
         var checkedItems = {}, counter = 0;
         $("#check-list-box li.active").each(function(idx, li) {
             checkedItems[counter] = $(li).text();
@@ -94,26 +94,52 @@ $(function () {
 
 
 $( "#search" ).bind( "click", function() {  // #search is the button
-  console.log( "User clicked on 'search.'" );
+  // console.log( "User clicked on 'search.'" );
   var userInput = $("#usr").val();  // #usr is the input field
   userInput = userInput.replace(/\s+/g,"+");  // \s space, g global, + maybe repeated more than once
   // console.log(userInput);
-  var userLocation = $("#location").val();
-  // console.log(location);
-  var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation;
+  var userLocation_selected = document.getElementById("location");
+  var userLocation = userLocation_selected.options[userLocation_selected.selectedIndex].value;
+  console.log(userLocation);
+  switch(userLocation) {
+    case "AB":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Alberta";
+        break;
+    case "BC":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:British+Columbia";
+        break;
+    case "ON":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Ontario";
+        break;
+    case "MB":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Manitoba";
+        break;
+    case "NB":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:New+Brunswick";
+        break;
+    case "QC":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Quebec";
+        break;
+    case "SK":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Saskatchewan";
+        break;
+    default:
+        var github_link = "https://api.github.com/search/users?q=" + userInput;
+      }
   console.log(github_link);
   $.getJSON(github_link, function (json) {
     var userRepo = json.items[0].repos_url;
-    console.log(location);
-    $.getJSON(location, function(json){
-      var userRepoName = json.name;
-      console.log(userRepoName)
-      $.each(json, function(){
-        var userRepoName = this.name;
-        console.log(this.name);
-      });
-    }
+    console.log(userRepo);
+    $.getJSON(userRepo, function(json){
+      var userRepoName;
+      for(var n = 0; n < json.length; n++){
+        userRepoName = json[n].name;
+        console.log(userRepoName);
+      }
+      // $.each(json, function(){
+      //   var userRepoName = this.name;
+      //   console.log(this.name);
+      // });
+    });
   });
 });
-
-
