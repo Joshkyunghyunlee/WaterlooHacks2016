@@ -78,19 +78,43 @@
 });
 
 // parse JSON data from URI
-var github_link = "https://api.github.com/users/ckyue";
-
-$.getJSON(github_link, function (json) {
-	var login = json.login;
-	alert(login);
-});
+// var github_link = "https://api.github.com/users/ckyue";
+//
+// $.getJSON(github_link, function (json) {
+// 	var login = json.login;
+// 	alert(login);
+// });
 
 //scap url
-$(document).ready(function() {
-  $.get( "https://www.linkedin.com/in/ckyue", function( data ) {
-  //$( ".endorse-item-name-text" ).html(data );
-  alert( "Load was performed." );
-});
+// $(document).ready(function() {
+//   $.get( "https://www.linkedin.com/in/ckyue", function( data ) {
+//   //$( ".endorse-item-name-text" ).html(data );
+//   alert( "Load was performed." );
+// });
+// });
+
+
+$( "#search" ).bind( "click", function() {  // #search is the button
+  console.log( "User clicked on 'search.'" );
+  var userInput = $("#usr").val();  // #usr is the input field
+  userInput = userInput.replace(/\s+/g,"+");  // \s space, g global, + maybe repeated more than once
+  // console.log(userInput);
+  var userLocation = $("#location").val();
+  // console.log(location);
+  var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation;
+  console.log(github_link);
+  $.getJSON(github_link, function (json) {
+    var userRepo = json.items[0].repos_url;
+    console.log(location);
+    $.getJSON(location, function(json){
+      var userRepoName = json.name;
+      console.log(userRepoName)
+      $.each(json, function(){
+        var userRepoName = this.name;
+        console.log(this.name);
+      });
+    }
+  });
 });
 
 
