@@ -132,11 +132,18 @@ $( "#search" ).bind( "click", function() {  // #search is the button
     var userRepo = json.items[0].repos_url;
     console.log(userRepo);
     $.getJSON(userRepo, function(json){
-      var userRepoName;
-      for(var n = 0; n < json.length; n++){
-        userRepoName = json[n].name;
-        console.log(userRepoName);
+      var userRepoName = new Array;
+      for(var n = 0; n < json.length; n++){  //repo name
+        userRepoName[n] = json[n].name;
       }
+      // console.log(userRepoName);
+      $(".github").append("<h2 class="github-header">GitHub</h2>");
+      $(".github").append("<h2 class="github-header-small">Repository</h2>");
+      $(".github").append("<ul class="github-repo">");
+      for(var n = 0; n < userRepoName.length; n++){
+        $(".github").append("<li>" + userRepoName[n] + "</li>");
+      }
+      $(".github").append("</ul>");
       // $.each(json, function(){
       //   var userRepoName = this.name;
       //   console.log(this.name);
