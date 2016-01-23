@@ -95,26 +95,25 @@
 
 
 $( "#search" ).bind( "click", function() {  // #search is the button
-  console.log( "User clicked on 'search.'" );
+  // console.log( "User clicked on 'search.'" );
   var userInput = $("#usr").val();  // #usr is the input field
   userInput = userInput.replace(/\s+/g,"+");  // \s space, g global, + maybe repeated more than once
   // console.log(userInput);
-  var userLocation = $("#location").val();
-  // console.log(location);
+  var userLocation_selected = document.getElementById("location");
+  var userLocation = userLocation_selected.options[userLocation_selected.selectedIndex].value;
+  console.log(userLocation);
   var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation;
   console.log(github_link);
-  $.getJSON(github_link, function (json) {
-    var userRepo = json.items[0].repos_url;
-    console.log(location);
-    $.getJSON(location, function(json){
-      var userRepoName = json.name;
-      console.log(userRepoName)
-      $.each(json, function(){
-        var userRepoName = this.name;
-        console.log(this.name);
-      });
-    }
-  });
+  // $.getJSON(github_link, function (json) {
+  //   var userRepo = json.items[0].repos_url;
+  //   console.log(location);
+  //   $.getJSON(location, function(json){
+  //     var userRepoName = json.name;
+  //     console.log(userRepoName)
+  //     $.each(json, function(){
+  //       var userRepoName = this.name;
+  //       console.log(this.name);
+  //     });
+  //   }
+  // });
 });
-
-
