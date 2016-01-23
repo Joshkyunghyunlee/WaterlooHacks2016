@@ -130,14 +130,14 @@ $( "#search" ).bind( "click", function() {  // #search is the button
   //pass github link we got based from user input
   console.log(github_link);
   $.getJSON(github_link, function (json) {
-    var userRepo = json.items[0].repos_url;
+    var userRepo = json.items[0].repos_url + "?access_token=95df8173f3d1df54b9cf04f349679ff89a443dfe";
     console.log(userRepo);
     $.getJSON(userRepo, function(json){
       var userRepoName = new Array;
       for(var n = 0; n < json.length; n++){  //repo name
         userRepoName[n] = json[n].name;
       }
-      // console.log(userRepoName);
+      console.log(userRepoName);
       $(".github").append("<h2>GitHub</h2>");
       $(".github").append("<h4>Repository</h4>")
       $("h2").addClass("section-header");
