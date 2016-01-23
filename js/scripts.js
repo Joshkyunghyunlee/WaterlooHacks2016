@@ -139,7 +139,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
       }
       console.log(userRepoName);
       $(".github").append("<h2>GitHub</h2>");
-      $(".github").append("<h4>Repository</h4>")
+      $(".github").append("<h4>Repositories</h4>")
       $("h2").addClass("section-header");
       $("h4").addClass("section-header-small");
       $(".github").append("<ul>");
