@@ -1,5 +1,5 @@
 $(function () {
-    $('.list-group.checked-list-box .list-group-item').each(function () {
+    $('.list-inline.checked-list-box .list-group-item').each(function () {
 
         // Settings
         var $widget = $(this),
