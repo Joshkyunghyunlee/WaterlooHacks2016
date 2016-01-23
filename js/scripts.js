@@ -94,13 +94,14 @@ $(function () {
 
 
 $( "#search" ).bind( "click", function() {  // #search is the button
+  $( ".github" ).empty();
   // console.log( "User clicked on 'search.'" );
   var userInput = $("#usr").val();  // #usr is the input field
   userInput = userInput.replace(/\s+/g,"+");  // \s space, g global, + maybe repeated more than once
   // console.log(userInput);
   var userLocation_selected = document.getElementById("location");
   var userLocation = userLocation_selected.options[userLocation_selected.selectedIndex].value;
-  console.log(userLocation);
+  // console.log(userLocation);
   switch(userLocation) {
     case "AB":
         var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Alberta";
