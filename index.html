@@ -24,21 +24,16 @@
         <button type="button" class="btn btn-info" id="search">Create Profile</button>
       </div>
     </form>
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Location
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li class="dropdown-header">Province</li>
-          <li class="divider"></li>
-          <li><a href="#">Alberta</a></li>
-          <li><a href="#">British Columbia</a></li>
-          <li><a href="#">Manitoba</a></li>
-          <li><a href="#">Nova Scotia</a></li>
-          <li><a href="#">Ontario</a></li>
-          <li><a href="#">Quebec</a></li>
-          <li><a href="#">Saskatchewan</a></li>
-        </ul>
-      </div>
+<select id="ddlViewBy" placeholder="location">
+  <option value="" disabled="disabled" selected="selected">Select your location</option>
+  <option value="1">Alberta</option>
+  <option value="2" >British Columbia</option>
+  <option value="3">Ontario</option>
+  <option value="4">Manitoba</option>
+  <option value="5">New Brunswick</option>
+  <option value="6">Quebec</option>
+  <option value="7">Saskatchewan</option>
+</select>
         
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -52,7 +47,8 @@
           </div>
       </div>
     </div>
-        
+  </div><!-- container -->
+      
     <footer class="footer">
       <div class="content">
       <span>Copyright &copy; 2016. Created by: </span>

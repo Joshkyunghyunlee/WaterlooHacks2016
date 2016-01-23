@@ -1,10 +1,10 @@
-$(function () {
+    $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
 
         // Settings
         var $widget = $(this),
             $checkbox = $('<input type="checkbox" class="hidden" />'),
-            color = ($widget.data('color') ? $widget.data('color') : "primary"),
+            color = ($widget.data('color') ? $widget.data('color') : "info"),
             style = ($widget.data('style') == "button" ? "btn-info" : "list-group-item-"),
             settings = {
                 on: {
