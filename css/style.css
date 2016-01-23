@@ -42,6 +42,15 @@ h1 {
     font-size: 20px;
 }
 
+/* Checklist css*/
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
 .well {
     max-height: 300px;
     overflow: auto;

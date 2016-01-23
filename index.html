@@ -8,9 +8,9 @@
     <meta name="author" content="">
     <title>Portfolio Publisher</title>
 <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- Custom CSS -->
     <link rel='stylesheet' href="css/style.css">
   </head>
@@ -24,30 +24,38 @@
         <button type="button" class="btn btn-info" id="search">Create Profile</button>
       </div>
     </form>
-<select id="location" placeholder="location">
-  <option value="" disabled="disabled" selected="selected">Select your location</option>
-  <option value="1">Alberta</option>
-  <option value="2" >British Columbia</option>
-  <option value="3">Ontario</option>
-  <option value="4">Manitoba</option>
-  <option value="5">New Brunswick</option>
-  <option value="6">Quebec</option>
-  <option value="7">Saskatchewan</option>
-</select>
+      
+    <select id="location">
+      <option value="" disabled="disabled" selected="selected">Select your location</option>
+      <option value="AB">Alberta</option>
+      <option value="BC">British Columbia</option>
+      <option value="ON">Ontario</option>
+      <option value="MB">Manitoba</option>
+      <option value="NB">New Brunswick</option>
+      <option value="QC">Quebec</option>
+      <option value="SK">Saskatchewan</option>
+    </select>
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h3 class="text-center">Build a profile using these websites</h3>
           <div class="well">
-            <ul class="list-group checked-list-box">
-              <li class="list-group-item">LinkedIn</li>
-              <li class="list-group-item">Github</li>
-              <li class="list-group-item">Facebook</li>
+            <ul id="check-list-box" class="list-group checked-list-box">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item" data-color="success">Dapibus ac facilisis in</li>
+              <li class="list-group-item" data-color="info">Morbi leo risus</li>
+              <li class="list-group-item" data-color="warning">Porta ac consectetur ac</li>
+              <li class="list-group-item" data-color="danger">Vestibulum at eros</li>
             </ul>
+            <br />
+            <button class="btn btn-info col-xs-12" id="get-checked-data">Get Checked Data</button>
           </div>
+        <pre id="display-json"></pre>
       </div>
-    </div>
+	</div>
   </div><!-- container -->
+      
+    
 
     <footer class="footer">
       <div class="content">
