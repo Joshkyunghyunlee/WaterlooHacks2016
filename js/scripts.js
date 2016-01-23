@@ -1,6 +1,6 @@
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
-        
+
         // Settings
         var $widget = $(this),
             $checkbox = $('<input type="checkbox" class="hidden" />'),
@@ -14,7 +14,7 @@ $(function () {
                     icon: 'glyphicon glyphicon-unchecked'
                 }
             };
-            
+
         $widget.css('cursor', 'pointer')
         $widget.append($checkbox);
 
@@ -27,7 +27,7 @@ $(function () {
         $checkbox.on('change', function () {
             updateDisplay();
         });
-          
+
 
         // Actions
         function updateDisplay() {
@@ -51,11 +51,11 @@ $(function () {
 
         // Initialization
         function init() {
-            
+
             if ($widget.data('checked') == true) {
                 $checkbox.prop('checked', !$checkbox.is(':checked'));
             }
-            
+
             updateDisplay();
 
             // Inject the icon if applicable
@@ -65,9 +65,9 @@ $(function () {
         }
         init();
     });
-    
+
     $('#get-checked-data').on('click', function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
         var checkedItems = {}, counter = 0;
         $("#check-list-box li.active").each(function(idx, li) {
             checkedItems[counter] = $(li).text();
@@ -75,4 +75,20 @@ $(function () {
         });
         $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
     });
+});
+
+// parse JSON data from URI
+var github_link = "https://api.github.com/users/ckyue";
+
+$.getJSON(github_link, function (json) {
+	var login = json.login;
+	alert(login);
+});
+
+//scap url
+$(document).ready(function() {
+  $.get( "https://www.linkedin.com/in/ckyue", function( data ) {
+  //$( ".endorse-item-name-text" ).html(data );
+  alert( "Load was performed." );
+});
 });
