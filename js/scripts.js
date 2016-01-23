@@ -127,16 +127,16 @@ $( "#search" ).bind( "click", function() {  // #search is the button
         var github_link = "https://api.github.com/search/users?q=" + userInput;
       }
   console.log(github_link);
-  // $.getJSON(github_link, function (json) {
-  //   var userRepo = json.items[0].repos_url;
-  //   console.log(location);
-  //   $.getJSON(location, function(json){
-  //     var userRepoName = json.name;
-  //     console.log(userRepoName)
-  //     $.each(json, function(){
-  //       var userRepoName = this.name;
-  //       console.log(this.name);
-  //     });
-  //   }
-  // });
+  $.getJSON(github_link, function (json) {
+    var userRepo = json.items[0].repos_url;
+    console.log(location);
+    $.getJSON(location, function(json){
+      var userRepoName = json.name;
+      console.log(userRepoName)
+      $.each(json, function(){
+        var userRepoName = this.name;
+        console.log(this.name);
+      });
+    }
+  });
 });
