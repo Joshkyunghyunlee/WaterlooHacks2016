@@ -129,14 +129,17 @@ $( "#search" ).bind( "click", function() {  // #search is the button
   console.log(github_link);
   $.getJSON(github_link, function (json) {
     var userRepo = json.items[0].repos_url;
-    console.log(location);
-    $.getJSON(location, function(json){
-      var userRepoName = json.name;
-      console.log(userRepoName)
-      $.each(json, function(){
-        var userRepoName = this.name;
-        console.log(this.name);
-      });
-    }
+    console.log(userRepo);
+    $.getJSON(userRepo, function(json){
+      var userRepoName;
+      for(var n = 0; n < json.length; n++){
+        userRepoName = json[n].name;
+        console.log(userRepoName);
+      }
+      // $.each(json, function(){
+      //   var userRepoName = this.name;
+      //   console.log(this.name);
+      // });
+    });
   });
 });
