@@ -126,6 +126,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
     default:
         var github_link = "https://api.github.com/search/users?q=" + userInput;
       }
+  //pass github link we got based from user input
   console.log(github_link);
   $.getJSON(github_link, function (json) {
     var userRepo = json.items[0].repos_url;

@@ -7,7 +7,6 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-image: url("Images/wallpaper.jpg");
 }
 
 body,h1,h2,h3,h4,h5,h6 {
