@@ -1,6 +1,6 @@
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
-        
+
         // Settings
         var $widget = $(this),
             $checkbox = $('<input type="checkbox" class="hidden" />'),
@@ -14,7 +14,7 @@ $(function () {
                     icon: 'glyphicon glyphicon-unchecked'
                 }
             };
-            
+
         $widget.css('cursor', 'pointer')
         $widget.append($checkbox);
 
@@ -27,7 +27,7 @@ $(function () {
         $checkbox.on('change', function () {
             updateDisplay();
         });
-          
+
 
         // Actions
         function updateDisplay() {
@@ -51,11 +51,11 @@ $(function () {
 
         // Initialization
         function init() {
-            
+
             if ($widget.data('checked') == true) {
                 $checkbox.prop('checked', !$checkbox.is(':checked'));
             }
-            
+
             updateDisplay();
 
             // Inject the icon if applicable
@@ -65,9 +65,9 @@ $(function () {
         }
         init();
     });
-    
+
     $('#get-checked-data').on('click', function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
         var checkedItems = {}, counter = 0;
         $("#check-list-box li.active").each(function(idx, li) {
             checkedItems[counter] = $(li).text();
