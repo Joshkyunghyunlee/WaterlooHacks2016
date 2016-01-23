@@ -5,7 +5,7 @@ $(function () {
         var $widget = $(this),
             $checkbox = $('<input type="checkbox" class="hidden" />'),
             color = ($widget.data('color') ? $widget.data('color') : "primary"),
-            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
+            style = ($widget.data('style') == "button" ? "btn-info" : "list-group-item-"),
             settings = {
                 on: {
                     icon: 'glyphicon glyphicon-check'
@@ -92,3 +92,5 @@ $(document).ready(function() {
   alert( "Load was performed." );
 });
 });
+
+
