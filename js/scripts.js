@@ -102,7 +102,31 @@ $( "#search" ).bind( "click", function() {  // #search is the button
   var userLocation_selected = document.getElementById("location");
   var userLocation = userLocation_selected.options[userLocation_selected.selectedIndex].value;
   console.log(userLocation);
-  var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation;
+  switch(userLocation) {
+    case "AB":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Alberta";
+        break;
+    case "BC":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:British+Columbia";
+        break;
+    case "ON":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Ontario";
+        break;
+    case "MB":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Manitoba";
+        break;
+    case "NB":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:New+Brunswick";
+        break;
+    case "QC":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Quebec";
+        break;
+    case "SK":
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Saskatchewan";
+        break;
+    default:
+        var github_link = "https://api.github.com/search/users?q=" + userInput;
+      }
   console.log(github_link);
   // $.getJSON(github_link, function (json) {
   //   var userRepo = json.items[0].repos_url;
