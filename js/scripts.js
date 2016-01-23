@@ -141,8 +141,11 @@ $( "#search" ).bind( "click", function() {  // #search is the button
       $(".github").append("<h4>Repository</h4>")
       $("h2").addClass("section-header");
       $("h4").addClass("section-header-small");
+      $(".github").append("<ul>");
+      $("ul").addClass("list-group");
       for(var n = 0; n < userRepoName.length; n++){
         $(".github").append("<li>" + userRepoName[n] + "</li>");
+        $("li").addClass("list-group-item");
       }
       $(".github").append("</ul>");
     });
