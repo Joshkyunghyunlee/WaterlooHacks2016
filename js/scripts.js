@@ -1,11 +1,11 @@
-    $(function () {
+$(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
-
+        
         // Settings
         var $widget = $(this),
             $checkbox = $('<input type="checkbox" class="hidden" />'),
-            color = ($widget.data('color') ? $widget.data('color') : "info"),
-            style = ($widget.data('style') == "button" ? "btn-info" : "list-group-item-"),
+            color = ($widget.data('color') ? $widget.data('color') : "primary"),
+            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
             settings = {
                 on: {
                     icon: 'glyphicon glyphicon-check'
@@ -14,7 +14,7 @@
                     icon: 'glyphicon glyphicon-unchecked'
                 }
             };
-
+            
         $widget.css('cursor', 'pointer')
         $widget.append($checkbox);
 
@@ -27,7 +27,7 @@
         $checkbox.on('change', function () {
             updateDisplay();
         });
-
+          
 
         // Actions
         function updateDisplay() {
@@ -51,11 +51,11 @@
 
         // Initialization
         function init() {
-
+            
             if ($widget.data('checked') == true) {
                 $checkbox.prop('checked', !$checkbox.is(':checked'));
             }
-
+            
             updateDisplay();
 
             // Inject the icon if applicable
@@ -65,9 +65,9 @@
         }
         init();
     });
-
+    
     $('#get-checked-data').on('click', function(event) {
-        event.preventDefault();
+        event.preventDefault(); 
         var checkedItems = {}, counter = 0;
         $("#check-list-box li.active").each(function(idx, li) {
             checkedItems[counter] = $(li).text();
@@ -76,7 +76,6 @@
         $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
     });
 });
-
 // parse JSON data from URI
 // var github_link = "https://api.github.com/users/ckyue";
 //
