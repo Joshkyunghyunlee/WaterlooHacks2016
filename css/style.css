@@ -72,6 +72,9 @@ h1 {
     text-align: center;
 }
 
+.list-group {
+    text-align: left;
+}
 /* Footer css */
 .footer {
     position: absolute;

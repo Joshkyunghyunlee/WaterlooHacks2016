@@ -65,16 +65,6 @@ $(function () {
         }
         init();
     });
-
-    $('#get-checked-data').on('click', function(event) {
-        event.preventDefault();
-        var checkedItems = {}, counter = 0;
-        $("#check-list-box li.active").each(function(idx, li) {
-            checkedItems[counter] = $(li).text();
-            counter++;
-        });
-        $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
-    });
 });
 // parse JSON data from URI
 // var github_link = "https://api.github.com/users/ckyue";
@@ -94,6 +84,19 @@ $(function () {
 
 
 $( "#search" ).bind( "click", function() {  // #search is the button
+    
+  $('.list-inline.checked-list-box .list-group-item').each(function () {
+    $('#get-checked-data').on('click', function(event) {
+        var counter = 0;
+        //checkedItems now has the strings of each option the user has checked
+        $("#check-list-box li.active").each(function(idx, li) {
+            checkedItems[counter] = $(li).text();
+            counter++;
+        });
+        
+    });
+  });
+    
   $( ".github" ).empty();
   // console.log( "User clicked on 'search.'" );
   var userInput = $("#usr").val();  // #usr is the input field
@@ -130,23 +133,40 @@ $( "#search" ).bind( "click", function() {  // #search is the button
   //pass github link we got based from user input
   console.log(github_link);
   $.getJSON(github_link, function (json) {
+    //If our user search has no matches, append an error message to the user
+    if (json.items[0] == null) {
+        $(".github").append("<h3>No Github user matched specified inputs</h3>");
+    }
+    
     var userRepo = json.items[0].repos_url + "?access_token=83701724955f812815dfb18948932621900cd00b";
+    var githubUser = json.items[0].login;
+    var githubLink = "https://github.com/" + githubUser;
+    var repoLink = githubLink + "?tab=repositories";
+    $(".github").append("<h2><i></i> Github Profile</h2>");
+    $("i").addClass("fa fa-github fa-1x");
+    $(".github").append("<h5>" + "Github username: " + githubUser + "</h5>");
+    $(".github").append("<a>User's profile URL</a>");
+    $("a").attr("href", githubLink); 
+    $("a").attr("target", "_blank");  //opens new tab
+    $(".github").append("<br />");
     console.log(userRepo);
+    console.log(githubLink);
     $.getJSON(userRepo, function(json){
       var userRepoName = new Array;
+      var userRepoDescription = new Array;
       for(var n = 0; n < json.length; n++){  //repo name
         userRepoName[n] = json[n].name;
+        userRepoDescription[n] = json[n].description;
       }
       console.log(userRepoName);
-      $(".github").append("<h2>GitHub</h2>");
-      $(".github").append("<h4>Repositories</h4>")
-      $("h2").addClass("section-header");
-      $("h4").addClass("section-header-small");
+      $(".github").append("<br />");
+      $(".github").append("<h3>Repositories</h3><p>(listed in chronological order)</p>");
+      $("h3").addClass("section-header-small");
       $(".github").append("<ul>");
       $("ul").addClass("list-group");
       for(var n = 0; n < userRepoName.length; n++){
         var number = n + 1;
-        $(".github").append("<li>" + number + '. ' + userRepoName[n] + "</li>");
+        $(".github").append("<li>" + number + '. ' + userRepoName[n] + '<br /><br />' + 'Description: ' + userRepoDescription[n] + "</li>");
         $("li").addClass("list-group-item");
       }
       $(".github").append("</ul>");
