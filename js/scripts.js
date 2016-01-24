@@ -84,7 +84,7 @@ $(function () {
 
 
 $( "#search" ).bind( "click", function() {  // #search is the button
-    
+
   $('.list-inline.checked-list-box .list-group-item').each(function () {
     $('#get-checked-data').on('click', function(event) {
         var counter = 0;
@@ -93,10 +93,10 @@ $( "#search" ).bind( "click", function() {  // #search is the button
             checkedItems[counter] = $(li).text();
             counter++;
         });
-        
+
     });
   });
-    
+
   $( ".github" ).empty();
   // console.log( "User clicked on 'search.'" );
   var userInput = $("#usr").val();  // #usr is the input field
@@ -137,7 +137,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
     if (json.items[0] == null) {
         $(".github").append("<h3>No Github user matched specified inputs</h3>");
     }
-    
+
     var userRepo = json.items[0].repos_url + "?access_token=83701724955f812815dfb18948932621900cd00b";
     var githubUser = json.items[0].login;
     var githubLink = "https://github.com/" + githubUser;
@@ -146,7 +146,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
     $("i").addClass("fa fa-github fa-1x");
     $(".github").append("<h5>" + "Github username: " + githubUser + "</h5>");
     $(".github").append("<a>User's profile URL</a>");
-    $("a").attr("href", githubLink); 
+    $("a").attr("href", githubLink);
     $("a").attr("target", "_blank");  //opens new tab
     $(".github").append("<br />");
     console.log(userRepo);
