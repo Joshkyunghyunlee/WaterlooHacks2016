@@ -130,7 +130,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
         $(".github").append("<h3>No Github user matched specified inputs</h3>");
     }
 
-    var userRepo = json.items[0].repos_url + "?access_token=83701724955f812815dfb18948932621900cd00b";
+    var userRepo = json.items[0].repos_url + "?access_token=86f916ef68335c7eb5f05e669b9a33ec0df77b11";
     var githubUser = json.items[0].login;
     var githubLink = "https://github.com/" + githubUser;
     var repoLink = githubLink + "?tab=repositories";
