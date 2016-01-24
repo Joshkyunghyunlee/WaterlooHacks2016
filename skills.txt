@@ -1,1 +1,0 @@
-["C++", "C", "JavaScript", "3D Printing", "Arduino", "HTML", "CSS", "Bootstrap", "Chrome Extensions", "SolidWorks"]
