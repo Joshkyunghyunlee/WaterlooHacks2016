@@ -1,3 +1,4 @@
+
 /* Universal Style */
 html {
     position: relative;
@@ -22,6 +23,25 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
     font-size:5em;
+}
+
+.jumbotron i, .jumbotron h1{
+    display:inline !important;
+    float:none;
+    color: #5bc0de;
+}
+
+.jumbotron {
+    background-color: white;
+    padding: 0px;
+}
+
+#title {
+    margin: 10px;
+}
+
+.jumbotron {
+    position: relative;
 }
 
 #location {
@@ -72,9 +92,24 @@ h1 {
     text-align: center;
 }
 
-.list-group {
-    text-align: left;
+.userPic {
+    width: 100px;
+	height: 100px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	position: relative;
+    box-shadow: 0 0 10px #999;
+    margin: 0 auto;
 }
+
+/*
+.github {
+    max-height: 500px;
+    overflow: auto;
+}
+*/
+
 /* Footer css */
 .footer {
     position: absolute;
@@ -83,19 +118,22 @@ h1 {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
-    background-color: #4EC5F3;
+    background-color: #5bc0de;
     text-align: center;
     margin: auto;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #46b8da;
 }
 
 .content {
     margin-top: 20px;
 }
 
-.footer a {
-    color: black;
+.footer a, .footer span {
+    color: white;
 }
 
 .footer a:hover {
-    color: black;
+    color: white;
 }
