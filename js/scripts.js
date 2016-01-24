@@ -84,20 +84,12 @@ $(function () {
 
 
 $( "#search" ).bind( "click", function() {  // #search is the button
-    
-  $('.list-inline.checked-list-box .list-group-item').each(function () {
-    $('#get-checked-data').on('click', function(event) {
-        var counter = 0;
-        //checkedItems now has the strings of each option the user has checked
-        $("#check-list-box li.active").each(function(idx, li) {
-            checkedItems[counter] = $(li).text();
-            counter++;
-        });
-        
-    });
-  });
-    
   $( ".github" ).empty();
+  $('.active').each(function (idx, li) {
+        var checkedItems = {}, counter = 0;
+        //checkedItems now has the strings of each option the user has checked
+            checkedItems[counter] = $(li).text();
+            if(checkedItems[counter] = "Github") {
   // console.log( "User clicked on 'search.'" );
   var userInput = $("#usr").val();  // #usr is the input field
   userInput = userInput.replace(/\s+/g,"+");  // \s space, g global, + maybe repeated more than once
@@ -113,7 +105,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
         var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:British+Columbia";
         break;
     case "ON":
-        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Ontario";
+        var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Ontario" + userLocation +"+location:Waterloo" + userLocation +"+location:Kitchener" + userLocation +"+location:Toronto";
         break;
     case "MB":
         var github_link = "https://api.github.com/search/users?q=" + userInput + "+location:" + userLocation +"+location:Manitoba";
@@ -142,6 +134,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
     var githubUser = json.items[0].login;
     var githubLink = "https://github.com/" + githubUser;
     var repoLink = githubLink + "?tab=repositories";
+    var userPic = json.items[0].avatar_url;
     $(".github").append("<h2><i></i> Github Profile</h2>");
     $("i").addClass("fa fa-github fa-1x");
     $(".github").append("<h5>" + "Github username: " + githubUser + "</h5>");
@@ -149,8 +142,14 @@ $( "#search" ).bind( "click", function() {  // #search is the button
     $("a").attr("href", githubLink); 
     $("a").attr("target", "_blank");  //opens new tab
     $(".github").append("<br />");
+    $(".github").append("<br />");
+    $(".github").append("<img></img");
+    $("img").addClass("userPic");
+    $("img").attr("src", userPic);
+    $(".github").append("<br />");
     console.log(userRepo);
     console.log(githubLink);
+      
     $.getJSON(userRepo, function(json){
       var userRepoName = new Array;
       var userRepoDescription = new Array;
@@ -172,9 +171,7 @@ $( "#search" ).bind( "click", function() {  // #search is the button
       $(".github").append("</ul>");
     });
   });
-
-  var req = new XMLHttpRequest();
-  req.addEventListener("load", reqListener);
-  req.open("GET", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=77peghd802xn68&redirect_uri=http%3A%2F%2Flocalhost%3A8888%2F&state=987654321");
-  req.send();
+            }
+            counter++;
+        });
 });
